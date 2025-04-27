@@ -133,7 +133,7 @@
             <specular>0.100000001 0.100000001 0.100000001 1</specular>
             <pbr>
               <metal>
-                <albedo_map>materials/textures/runway.png</albedo_map>
+                <albedo_map>models://runway/materials/textures/runway.png</albedo_map>
                 <roughness>0.6</roughness>
                 <metalness>0</metalness>
               </metal>
@@ -145,19 +145,19 @@
           <cast_shadows>false</cast_shadows>
           <geometry>
             <mesh>
-              <uri>file:///home/aryan/ardupilot_gazebo/models/runway/model://runway/meshes/airfield.dae</uri>
+              <uri>models://runway/meshes/airfield.dae</uri>
             </mesh>
           </geometry>
           <material>
-            <ambient>0.800000012 0.800000012 0.800000012 1</ambient>
+            <ambient>0.800000012 0.`800000012 0.800000012 1</ambient>
             <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
             <specular>0.100000001 0.100000001 0.100000001 1</specular>
             <pbr>
               <metal>
-                <albedo_map>materials/textures/Grass004_2K_Color.jpg</albedo_map>
-                <ambient_occlusion_map>materials/textures/Grass004_2K_AmbientOcclusion.jpg</ambient_occlusion_map>
-                <normal_map>materials/textures/Grass004_2K_NormalGL.jpg</normal_map>
-                <roughness_map>materials/textures/Grass004_2K_Roughness.jpg</roughness_map>
+                <albedo_map>models://runway/materials/textures/Grass004_2K_Color.jpg</albedo_map>
+                <ambient_occlusion_map>models://runway/materials/textures/Grass004_2K_AmbientOcclusion.jpg</ambient_occlusion_map>
+                <normal_map>models://runway/materials/textures/Grass004_2K_NormalGL.jpg</normal_map>
+                <roughness_map>models://runway/materials/textures/Grass004_2K_Roughness.jpg</roughness_map>
                 <roughness>0.6</roughness>
                 <metalness>0</metalness>
               </metal>
@@ -1215,14 +1215,14 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>file:///home/aryan/Downloads/house_model/untitled.dae</uri>
+              <uri>models://house_model/untitled.dae</uri>
             </mesh>
           </geometry>
         </visual>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>file:///home/aryan/Downloads/house_model/untitled.dae</uri>
+              <uri>models://house_model/untitled.dae</uri>
             </mesh>
           </geometry>
         </collision>
@@ -1250,14 +1250,14 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>file:///home/aryan/Downloads/house_model/untitled.dae</uri>
+              <uri>models://house_model/untitled.dae</uri>
             </mesh>
           </geometry>
         </visual>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>file:///home/aryan/Downloads/house_model/untitled.dae</uri>
+              <uri>models://house_model/untitled.dae</uri>
             </mesh>
           </geometry>
         </collision>
@@ -1285,14 +1285,14 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>file:///home/aryan/Downloads/house_model/untitled.dae</uri>
+              <uri>models://house_model/untitled.dae</uri>
             </mesh>
           </geometry>
         </visual>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>file:///home/aryan/Downloads/house_model/untitled.dae</uri>
+              <uri>models://house_model/untitled.dae</uri>
             </mesh>
           </geometry>
         </collision>

@@ -109,119 +109,14 @@
         </sensor>
       </link>
     </model>
-    <model name='untitled'>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/aryan/ardupilot_gazebo/house_model/untitled.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/aryan/ardupilot_gazebo/house_model/untitled.dae</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <pose>0 0 0 0 0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>52.95052316087061 -43.988149345525891 -0.56458509238052068 1.5229719668984699e-19 -1.4753120315850578e-18 3.8588182576550401e-22</pose>
-      <static>false</static>
-      <self_collide>false</self_collide>
-    </model>
-    <model name='untitled_0'>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/aryan/ardupilot_gazebo/house_model/untitled.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/aryan/ardupilot_gazebo/house_model/untitled.dae</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <pose>0 0 0 0 0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>-11.945574888558504 96.350898562739417 -0.56458509238052068 5.9455015060980363e-19 2.8636864148122825e-19 5.8385245171808614e-21</pose>
-      <static>false</static>
-      <self_collide>false</self_collide>
-    </model>
-    <model name='untitled_1'>
-      <link name='link'>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/aryan/ardupilot_gazebo/house_model/untitled.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>file:///home/aryan/ardupilot_gazebo/house_model/untitled.dae</uri>
-            </mesh>
-          </geometry>
-        </collision>
-        <pose>0 0 0 0 0 0</pose>
-        <inertial>
-          <pose>0 0 0 0 0 0</pose>
-          <mass>1</mass>
-          <inertia>
-            <ixx>1</ixx>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyy>1</iyy>
-            <iyz>0</iyz>
-            <izz>1</izz>
-          </inertia>
-        </inertial>
-        <enable_wind>false</enable_wind>
-      </link>
-      <pose>-62.891688159106394 -100.04129516721257 -0.56458509238052068 1.9808249848097391e-18 -4.1385615167977763e-19 -5.1494674903271265e-21</pose>
-      <static>false</static>
-      <self_collide>false</self_collide>
-    </model>
-
+    
     <include>
       <uri>model://runway</uri>
       <pose degrees="true">-29 545 0 0 0 363</pose>
     </include>
 
     <include>
-      <uri>model://iris_with_gimbal_9002</uri>
+      <uri>model://iris_with_gimbal</uri>
       <pose degrees="true">0 0 0.195 0 0 90</pose>
     </include>
 
