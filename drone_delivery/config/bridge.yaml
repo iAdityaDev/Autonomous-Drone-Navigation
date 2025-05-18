@@ -1,0 +1,5 @@
+- ros_topic_name: "/drone/camera"
+  gz_topic_name: "/world/iris_runway/model/iris_with_gimbal_9002/model/gimbal/link/pitch_link/sensor/camera/image"
+  ros_type_name: "sensor_msgs/msg/Image"
+  gz_type_name: "gz.msgs.Image"
+  direction: 'GZ_TO_ROS'
