@@ -1,8 +1,10 @@
+#!/usr/bin/env python3 
+
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
 from mavros_msgs.srv import WaypointPush
-from mavros_msgs import Waypoint
+from mavros_msgs.msg import Waypoint
 
 
 class MyNode(Node):
@@ -14,7 +16,7 @@ class MyNode(Node):
         self.points = {1 : [-353636662, 1491658175, 587540], 
                        2 : [-353624050, 1491651144, 587540], 
                        3 : [-353641682, 1491645576, 587540]}
-        
+
         self.waypoints = []
         
         self.waypoint_client = self.create_client(WaypointPush, '/mavros/mission/push')

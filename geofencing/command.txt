@@ -1,0 +1,138 @@
+gz sim -v4 -r iris_runway_person.sdf
+sim_vehicle.py -v ArduCopter -f gazebo-iris --console --map --model JSON --out=udp:127.0.0.1:14540
+
+ros2 launch mavros apm.launch fcu_url:=udp://:14540@127.0.0.1:14557
+
+ros2 run ros_gz_bridge parameter_bridge /world/iris_runway/model/iris_with_gimbal_9002/model/gimbal/link/pitch_link/sensor/camera/image@sensor_msgs/msg/Image[gz.msgs.Image
+
+ros2 run image_view image_view --ros-args -r image:=/world/iris_runway/model/iris_with_gimbal_9002/model/gimbal/link/pitch_link/sensor/camera/image
+
+ros2 topic pub /mavros/setpoint_position/global geographic_msgs/msg/GeoPoseStamped "{
+  header: {
+    stamp: {sec: 0, nanosec: 0},
+    frame_id: 'map'
+  },
+  pose: {
+    position: {
+      latitude: -156.6549987,
+      longitude: -113.774414,
+      altitude: 590.9489486040609
+    },
+    orientation: {
+      x: 0.0,
+      y: 0.0,
+      z: 0.0,
+      w: 1.0
+    }
+  }
+}"
+
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r cmd_vel:=/mavros/setpoint_velocity/cmd_vel_unstamped
+
+ros2 topic pub /mavros/setpoint_position/global geographic_msgs/msg/GeoPoseStamped "{
+  header: {
+    stamp: {sec: 0, nanosec: 0},
+    frame_id: 'map'
+  },
+  pose: {
+    position: {
+      latitude: -35.36222082,
+      longitude: 149.16516177,
+      altitude: 590.9489486040609
+    },
+    orientation: {
+      x: 0.0,
+      y: 0.0,
+      z: 0.0,
+      w: 1.0
+    }
+  }
+}"
+
+linear.x = +ve    ---> right
+linear.x = -ve    ---> left
+linear.y = +ve    ---> forward
+linear.y = -ve    ---> backward
+linear.z = +ve    ---> up 
+linear.z = -ve    ---> down
+
+for the VTOL
+
+gz sim -v4 -r skywalker_x8_quad_runway.sdf
+
+sim_vehicle.py -v ArduPlane --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/skywalker_x8_quad.param --console --map --out=udp:127.0.0.1:14540
+
+ros2 service call /mavros/mission/push mavros_msgs/srv/WaypointPush "{
+  start_index: 0,
+  waypoints: [{
+      frame: 3, 
+      command: 22,
+      is_current: true,
+      autocontinue: true,
+      param1: 10.0,
+      param2: 0.0,
+      param3: 0.0,
+      param4: 0.0,
+      x_lat: -30.356,
+      y_long: 140.986,
+      z_alt: 10.0
+    }]
+}"
+
+
+        # self.visualize_gf()
+
+    # def visualize_gf(self):
+    #     print('in the visualize gf')
+    #     marker = Marker()
+    #     marker.header.frame_id = "map"
+    #     marker.header.stamp = self.get_clock().now().to_msg()
+    #     marker.ns = "geofence"
+    #     marker.id = 0
+    #     marker.type = Marker.LINE_STRIP
+    #     marker.action = Marker.ADD
+        
+    #     # Set scale (line width)
+    #     marker.scale.x = 2.0
+        
+    #     # Set color (red fence)
+    #     marker.color = ColorRGBA()
+    #     marker.color.r = 1.0
+    #     marker.color.g = 0.0
+    #     marker.color.b = 0.0
+    #     marker.color.a = 1.0
+        
+    #     # Add fence points
+    #     for lat, lon in self.fence_pts:
+    #         point = Point()
+    #         # Convert GPS to local coordinates (approximate)
+    #         point.x = (lon - 149.1652375) * 111320.0 * 0.7  # Adjust for latitude
+    #         point.y = (lat - (-35.3632622)) * 111320.0
+    #         point.z = 10.0  # Height for visibility
+    #         marker.points.append(point)
+        
+
+    #     self.marker_pub.publish(marker) 
+
+
+        def gf_params(self):
+        print('in the gf_params')
+        self.set_param("FENCE_ENABLE", 1)
+        self.set_param("FENCE_ACTION", 1)
+        self.set_param("FENCE_TYPE", 2)
+        
+    def set_param(self, param_name, value):
+        print('in the set_param')
+        param = Parameter()
+        param.name = param_name
+        param.value = ParameterValue()
+        param.value.type = ParameterType.PARAMETER_INTEGER
+        param.value.integer_value = value
+        
+        req = SetParameters.Request()
+        req.parameters = [param]
+        
+        future = self.param_cli.call_async(req)
+        rclpy.spin_until_future_complete(self, future)
+        
+   

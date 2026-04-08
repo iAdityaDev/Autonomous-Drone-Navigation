@@ -23,14 +23,15 @@ install(
   DESTINATION share/${PROJECT_NAME}/
   )
 
-
-
 install(PROGRAMS
-  src/AlignDrone.py
+  src/02_drone_controller.py
+  src/01_drone_aligner.py
+  src/03_lifecycle_srvclient.py
+  src/delivery_controller.py
   src/controller.py
+  src/04_wp.py
   DESTINATION lib/${PROJECT_NAME}
 )
-
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

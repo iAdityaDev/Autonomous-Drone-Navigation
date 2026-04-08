@@ -13,9 +13,10 @@ from sensor_msgs.msg import NavSatFix
 class WaypointPusher(Node):
     def __init__(self):
         super().__init__('waypoint_pusher_node')
-        self.takeoff_done = 0
+        self.takeoff_done = 0.0
         self.current_lat = 0.0
         self.current_lon = 0.0
+        
         # Waypoint push client
         self.cli = self.create_client(WaypointPush, '/mavros/mission/push')
         while not self.cli.wait_for_service(timeout_sec=1.0):
@@ -136,6 +137,7 @@ class WaypointPusher(Node):
             self.get_logger().error("Service call failed")
 
     def waypoint_reached_callback(self, msg):
+        print('here i am working very good*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/')
         # This will be called when any waypoint is reached
         reached_wp = msg.wp_seq
         self.get_logger().info(f'Waypoint {reached_wp} reached')
@@ -275,10 +277,10 @@ def main(args=None):
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
-        pass
-
-    node.destroy_node()
-    rclpy.shutdown()
+        print('keyboard interrupt')
+    finally:
+        node.destroy_node()
+        rclpy.shutdown()
 
 
 if __name__ == '__main__':
